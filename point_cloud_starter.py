@@ -74,7 +74,7 @@ for i in range(0, len(indexes)):
     nb_points = len(outlier_cloud.select_by_index(indexes[i]).points)
     if (nb_points>MIN_POINTS and nb_points<MAX_POINTS):
         sub_cloud = outlier_cloud.select_by_index(indexes[i])
-        obb = sub_cloud.get_axis_aligned_bounding_box()
+        obb = sub_cloud.get_axis_aligned_bounding_box() # there is also oriented aligned bbox, instead of axis_aligned
         obb.color = (0, 0, 1)
         obbs.append(obb)
 print("Number of bounding boxes: ", len(obbs))
